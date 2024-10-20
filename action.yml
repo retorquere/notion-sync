@@ -1,0 +1,12 @@
+name: 'Mirror Issues to Notion'
+description: 'Mirrors GitHub issue activity to a Notion database'
+inputs:
+  notion_token:
+    description: 'Notion Integration Token'
+    required: true
+  notion_database_id:
+    description: 'Notion Database ID'
+    required: true
+runs:
+  using: 'node20'
+  main: 'index.js'

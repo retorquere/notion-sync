@@ -1,0 +1,21 @@
+name: Mirror Issues to Notion
+
+on:
+  issues:
+    types: [opened, edited, closed]
+  workflow_dispatch:
+
+jobs:
+  mirror_to_notion:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Mirror issue to Notion
+      uses: ./
+      with:
+        notion_token: ${{ secrets.NOTION_TOKEN }}
+        notion_database_id: ${{ secrets.NOTION_DATABASE_ID }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
