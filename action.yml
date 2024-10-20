@@ -10,7 +10,24 @@ inputs:
   github_token:
     description: 'GitHub token'
     required: true
+
 runs:
-  using: 'node20'
-  main: 'index.js'
-  pre: npminstall
+  using: 'composite'
+  steps:
+    - name: Check out the repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '20'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run the action
+      run: node index.js
+      env:
+        NOTION_TOKEN: ${{ inputs.notion_token }}
+        NOTION_DATABASE_ID: ${{ inputs.notion_database_id }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
