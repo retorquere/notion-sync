@@ -7,6 +7,9 @@ inputs:
   notion_database_id:
     description: 'Notion Database ID'
     required: true
+  github_token:
+    description: 'GitHub token'
+    required: true
 runs:
   using: 'node20'
   main: 'index.js'
