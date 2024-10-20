@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "dprint fmt index.js"
+    "lint": "dprint fmt index.js",
+    "postversion": "git push --follow-tags"
   },
   "author": "",
   "license": "ISC",
